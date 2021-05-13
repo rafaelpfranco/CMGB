@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Filtro em HTML</title>
+    <script>
+
+        function Pesquisar(string) {
+            tabela = document.getElementsByTagId("table")[0];
+            linhas = tabela.getElementsByTagName("tr");
+            for (let r = 1; r < linhas.length; r++) {
+                dados = linhas[r].getElementsByTagId("td");
+                let encontrei = false;
+                for (let d = 0; d < dados.length; d++) {
+                    if (dados[d].innerText.indexOf(string) >= 0) {
+                        encontrei = true;
+                        break;
+                    }
+                }
+                if (encontrei) {
+                    linhas[r].style.display = "";
+                } else {
+                    linhas[r].style.display = "none";
+                }
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <input oninput="Pesquisar(this.value)" placeholder="Pesquisar">
+    <table id="table">
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>País</th>
+        </tr>
+        <tr>
+            <td id="td">Jorge</td>
+            <td id="td">23</td>
+            <td id="td">França</td>
+        </tr>
+        <tr>
+            <td id="td">Luís</td>
+            <td id="td">50</td>
+            <td id="td">Brasil</td>
+        </tr>
+        <tr>
+            <td>João</td>
+            <td>56</td>
+            <td>Itália</td>
+        </tr>
+    </table>
+</body>
+
+</html>
